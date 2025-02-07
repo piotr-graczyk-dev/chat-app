@@ -1,0 +1,61 @@
+{
+  "expo": {
+    "name": "GMI Starter",
+    "slug": "gmi-react-native-starter",
+    "owner": "gmi-software",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "src/assets/images/icon.png",
+    "scheme": "gmi-starter",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "src/assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "pl.gmi.starter"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "src/assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "pl.gmi.starter"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "src/assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "react-native-bottom-tabs",
+      "expo-localization",
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "node_modules/@expo-google-fonts/montserrat/Montserrat_400Regular.ttf",
+            "node_modules/@expo-google-fonts/montserrat/Montserrat_500Medium.ttf",
+            "node_modules/@expo-google-fonts/montserrat/Montserrat_600SemiBold.ttf",
+            "./node_modules/@react-native-vector-icons/feather/fonts/Feather.ttf"
+          ]
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

@@ -1,0 +1,3 @@
+appId: pl.gmi.starter
+---
+- assertVisible: 'GMI Starter'

@@ -1,0 +1,56 @@
+{
+  "extends": [
+    "expo",
+    "prettier",
+    "plugin:@tanstack/eslint-plugin-query/recommended"
+  ],
+  "plugins": [
+    "prettier",
+    "simple-import-sort",
+    "unused-imports",
+    "import",
+    "react-native"
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "react-native",
+            "importNames": ["FlatList"],
+            "message": "Don't be lazy use FlashList"
+          },
+          {
+            "name": "react-native-gesture-handler",
+            "importNames": ["FlatList"],
+            "message": "Don't be lazy use FlashList"
+          }
+        ]
+      }
+    ],
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "no-unused-vars": "off",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+    "react-native/no-inline-styles": "error"
+  }
+}

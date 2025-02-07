@@ -1,0 +1,30 @@
+name: Check code
+
+on: [push]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Run ESLint
+        run: bun lint
+
+      - name: Run Prettier
+        run: bun check
+
+      - name: Run type check
+        run: bun compile
+
+      - name: Run Expo Doctor
+        run: npx expo-doctor
