@@ -1,17 +1,17 @@
-import z from 'zod';
+// import z from 'zod';
 
-const envSchema = z.object({
-  API_URL: z.string().url(),
-});
+// const envSchema = z.object({
+//   OPENAI_API_KEY: z.string().min(1),
+// });
 
-const env = envSchema.safeParse({
-  API_URL: process.env.EXPO_PUBLIC_API_URL,
-});
+// const env = envSchema.safeParse({
+//   OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+// });
 
-if (!env.success) {
-  throw new Error(
-    `There is an error with the server environment variables: ${env.error.message}`,
-  );
-}
+// if (!env.success) {
+//   throw new Error(
+//     `There is an error with the server environment variables: ${env.error.message}`,
+//   );
+// }
 
-export const { API_URL } = env.data;
+// export const { OPENAI_API_KEY } = env.data;

@@ -14,9 +14,20 @@ import * as SplashScreen from 'expo-splash-screen';
 import React from 'react';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
 import { PaperProvider } from 'react-native-paper';
-import { useStyles } from 'react-native-unistyles';
+import {
+  UnistylesProvider,
+  UnistylesRuntime,
+  useStyles,
+} from 'react-native-unistyles';
+
+import { AuthProvider } from '@/contexts/auth';
 
 SplashScreen.preventAutoHideAsync();
+
+SplashScreen.setOptions({
+  duration: 1000,
+  fade: true,
+});
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
@@ -31,21 +42,28 @@ export default function RootLayout() {
   }
 
   return (
-    <PersistQueryClientProvider
-      client={queryClient}
-      persistOptions={{ persister: clientPersister }}>
-      <KeyboardProvider>
-        <PaperProvider theme={theme}>
-          <Stack
-            screenOptions={{
-              headerShown: false,
-              contentStyle: {
-                backgroundColor: theme.colors.background,
-              },
-            }}
-          />
-        </PaperProvider>
-      </KeyboardProvider>
-    </PersistQueryClientProvider>
+    <AuthProvider>
+      <PersistQueryClientProvider
+        client={queryClient}
+        persistOptions={{ persister: clientPersister }}>
+        <KeyboardProvider>
+          <PaperProvider theme={theme}>
+            <UnistylesProvider>
+              <Stack
+                screenOptions={{
+                  headerShown: false,
+                  animation: 'fade',
+                  statusBarStyle:
+                    UnistylesRuntime.themeName === 'dark' ? 'light' : 'dark',
+                  contentStyle: {
+                    backgroundColor: theme.colors.background,
+                  },
+                }}
+              />
+            </UnistylesProvider>
+          </PaperProvider>
+        </KeyboardProvider>
+      </PersistQueryClientProvider>
+    </AuthProvider>
   );
 }

@@ -1,3 +1,10 @@
 {
-  "title": "GMI Rozrusznik projektów"
+  "cancel": "Anuluj",
+  "chat": "Czat",
+  "edit": "Edytuj",
+  "profile": "Profil",
+  "save": "Zapisz",
+  "sign_out": "Wyloguj się",
+  "theme": "Zmień motyw",
+  "language": "Zmień język"
 }

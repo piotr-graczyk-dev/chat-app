@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 import { breakpoints } from '@constants/breakpoints';
 import { darkTheme, lightTheme } from '@constants/themes';
-import { UnistylesRegistry } from 'react-native-unistyles';
+import { MMKV } from 'react-native-mmkv';
+import { UnistylesRegistry, UnistylesRuntime } from 'react-native-unistyles';
 
 type AppBreakpoints = typeof breakpoints;
 
@@ -17,6 +18,13 @@ declare module 'react-native-unistyles' {
   export interface UnistylesThemes extends AppThemes {}
 }
 
+const storage = new MMKV();
+
+export const setTheme = (theme: keyof AppThemes) => {
+  storage.set('theme', theme);
+  UnistylesRuntime.setTheme(theme);
+};
+
 UnistylesRegistry.addBreakpoints(breakpoints)
   .addThemes({
     light: lightTheme,
@@ -25,5 +33,5 @@ UnistylesRegistry.addBreakpoints(breakpoints)
   })
   .addConfig({
     // you can pass here optional config described below
-    adaptiveThemes: true,
+    initialTheme: (storage.getString('theme') as keyof AppThemes) || 'dark',
   });
