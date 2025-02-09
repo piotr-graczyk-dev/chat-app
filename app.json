@@ -82,7 +82,8 @@
           },
           "imageWidth": 200
         }
-      ]
+      ],
+      "expo-speech-recognition"
     ],
     "experiments": {
       "typedRoutes": true
