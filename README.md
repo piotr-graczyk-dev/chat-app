@@ -1,6 +1,6 @@
-# GMI React Native Starter
+# Chat app
 
-Starter project for React Native with Expo.
+An basic implementation of chat using Expo Server API.
 
 ## Get started
 
@@ -30,8 +30,6 @@ In the output, you'll find options to open the app in a
 - [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
 ## Tech Stack
-
-Nothing makes it into Ignite unless it's been proven on projects that Infinite Red works on. Ignite apps include the following rock-solid technical decisions out of the box:
 
 | Library                          | Category                | Version | Description                                                     |
 | -------------------------------- | ----------------------- | ------- | --------------------------------------------------------------- |
